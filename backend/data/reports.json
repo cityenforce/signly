@@ -1,0 +1,101 @@
+[
+  {
+    "submitted": "2026-11-22T10:26:58.7302669+05:00",
+    "to": "Yarra Street",
+    "suburb": "Geelong",
+    "from": "Bellerine Street",
+    "street": "Ryrie Street",
+    "code": "SGN-98AB-12CD",
+    "gps": "https://www.google.com/maps?q=-38.149918,144.361715",
+    "signCode": "SGN-98AB-12CD",
+    "side": "Centre",
+    "client": "City of Greater Geelong",
+    "ref": "261122TEST",
+    "created": "2026-11-22T10:26:58.7302669+05:00",
+    "signs": [
+      {
+        "type": "Road Rules / Safety signs",
+        "conds": [
+          {
+            "time": "8am-9:30am",
+            "rule": "Speed Limit",
+            "arrow": "",
+            "day": "School days only",
+            "speed": "50"
+          }
+        ]
+      }
+    ],
+    "notes": "Tested speed limit and GPS coordinate linking.",
+    "photoCount": 0,
+    "address": "120 Ryrie Street",
+    "updated": null
+  },
+  {
+    "to": "Moorabool Street",
+    "suburb": "Geelong",
+    "from": "Bellerine Street",
+    "street": "Myers Street",
+    "signCode": "SGN-M4R9-1094",
+    "side": "South",
+    "client": "City of Greater Geelong",
+    "ref": "ESG-20261121-W8K2M",
+    "submitted": "2026-11-21T17:33:03.9187936+05:00",
+    "signs": [
+      {
+        "type": "Parking sign",
+        "conds": [
+          {
+            "rule": "2P Meter",
+            "arrow": "Both ?",
+            "day": "Mon-Sat",
+            "time": "8am - 5pm"
+          }
+        ]
+      }
+    ],
+    "notes": "Clear sightline, new pole installed.",
+    "photoCount": 0,
+    "address": "45 Myers Street",
+    "updated": null
+  },
+  {
+    "ref": "ESG-20261120-K7X9A",
+    "signCode": "SGN-K3M8-9842",
+    "submitted": "2026-11-20T10:30:00.000Z",
+    "updated": null,
+    "client": "City of Greater Geelong",
+    "suburb": "Geelong",
+    "street": "Ryrie Street",
+    "from": "Bellerine Street",
+    "to": "Yarra Street",
+    "side": "North",
+    "address": "142 Ryrie Street",
+    "notes": "Pole in good condition. Clear visibility from 50m.",
+    "signs": [
+      {
+        "type": "Parking sign",
+        "conds": [
+          {
+            "rule": "1P Meter",
+            "arrow": "Both ↔",
+            "day": "Mon–Fri",
+            "time": "9am – 5pm",
+            "dsel": "Mon–Fri",
+            "chips": [
+              "Mon",
+              "Tue",
+              "Wed",
+              "Thu",
+              "Fri"
+            ],
+            "ts": "",
+            "te": ""
+          }
+        ]
+      }
+    ],
+    "photoCount": 1,
+    "photos": []
+  }
+]

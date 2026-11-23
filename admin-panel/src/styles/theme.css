@@ -1,0 +1,233 @@
+:root {
+  --bg: #F5F4ED;
+  --card: #FFFFFF;
+  --card-subtle: #FAF9F5;
+  --ink: #141413;
+  --mute: #706F6A;
+  --line: #E6E4D9;
+  --clay: #D97757;
+  --clay-hover: #C15F3C;
+  --clay-light: #F9EFEA;
+  --green: #2B6E4E;
+  --green-bg: #EBF5F0;
+  --red: #C8102E;
+  --red-bg: #FDE8E8;
+  --blue: #0056B3;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --shadow-sm: 0 1px 3px rgba(20, 20, 19, 0.05);
+  --shadow-md: 0 4px 12px rgba(20, 20, 19, 0.08);
+  --font-serif: 'Newsreader', Georgia, serif;
+  --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+}
+
+[data-theme="dark"] {
+  --bg: #1A1A19;
+  --card: #242423;
+  --card-subtle: #2C2C2A;
+  --ink: #F5F4ED;
+  --mute: #9C9B95;
+  --line: #383835;
+  --clay: #E08567;
+  --clay-hover: #D97757;
+  --clay-light: #3D2922;
+  --green: #48A878;
+  --green-bg: #1B3326;
+  --red: #F05252;
+  --red-bg: #3B1B1D;
+  --blue: #4A90E2;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  color: var(--ink);
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s ease-in-out;
+}
+
+input, select, textarea {
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--ink);
+  background-color: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 9px 12px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--clay);
+  box-shadow: 0 0 0 2px var(--clay-light);
+}
+
+/* Base Utility Classes */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9px 18px;
+  background-color: var(--clay);
+  color: #FFFFFF;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.btn:hover {
+  background-color: var(--clay-hover);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+.btn-secondary:hover {
+  background-color: var(--card-subtle);
+  border-color: var(--mute);
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 6px;
+}
+
+.btn-danger {
+  background-color: var(--red);
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background-color: #A30D25;
+}
+
+.card {
+  background-color: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.grid-kpi {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 16px;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background-color: var(--card);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th {
+  background-color: var(--card-subtle);
+  color: var(--mute);
+  font-weight: 500;
+  font-size: 13px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover td {
+  background-color: var(--card-subtle);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.badge-green {
+  background-color: var(--green-bg);
+  color: var(--green);
+}
+
+.badge-red {
+  background-color: var(--red-bg);
+  color: var(--red);
+}
+
+.badge-clay {
+  background-color: var(--clay-light);
+  color: var(--clay);
+}
+
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: var(--ink);
+  color: var(--bg);
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  z-index: 9999;
+  font-weight: 500;
+  animation: slideIn 0.2s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
