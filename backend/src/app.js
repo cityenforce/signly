@@ -50,7 +50,7 @@ app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')));
 app.get('/api/health', (req, res) => {
   res.json({
     status: 'ok',
-    app: 'Signly API Backend (MongoDB Atlas & Cloudflare R2)',
+    app: 'i-Sign API Backend (MongoDB Atlas & Cloudflare R2)',
     version: '2.0.0',
     time: new Date().toISOString()
   });

@@ -21,9 +21,9 @@ router.get('/stats/coverage', getAreaCoverage);
 router.get('/', getAreas);
 router.get('/:code', getAreaByCode);
 
-router.post('/', authenticate, requireRole(ROLES.ADMIN), validate(createAreaSchema), createArea);
-router.put('/:code', authenticate, requireRole(ROLES.ADMIN), validate(updateAreaSchema), updateArea);
-router.delete('/:code', authenticate, requireRole(ROLES.ADMIN), deleteArea);
+router.post('/', authenticate, requireRole(ROLES.ADMIN, ROLES.LEADER), validate(createAreaSchema), createArea);
+router.put('/:code', authenticate, requireRole(ROLES.ADMIN, ROLES.LEADER), validate(updateAreaSchema), updateArea);
+router.delete('/:code', authenticate, requireRole(ROLES.ADMIN, ROLES.LEADER), deleteArea);
 
 module.exports = router;
 

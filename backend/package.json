@@ -1,7 +1,7 @@
 {
-  "name": "signly-backend",
+  "name": "isign-backend",
   "version": "1.0.0",
-  "description": "Backend server for Signly parking and road sign data collection",
+  "description": "Backend server for i-Sign parking and road sign data collection",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

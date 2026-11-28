@@ -28,12 +28,12 @@ router.get('/dashboard/stats', getDashboardStats);
 // CSV export
 router.get('/export/csv', exportCsv);
 
-// Demo data operations (Admin only)
-router.post('/demo/seed', authenticate, requireRole(ROLES.ADMIN), seedDemoData);
-router.delete('/demo/remove', authenticate, requireRole(ROLES.ADMIN), removeDemoData);
+// Demo data operations (Admin / Leader only)
+router.post('/demo/seed', authenticate, requireRole(ROLES.ADMIN, ROLES.LEADER), seedDemoData);
+router.delete('/demo/remove', authenticate, requireRole(ROLES.ADMIN, ROLES.LEADER), removeDemoData);
 
-// Batch import (Admin only)
-router.post('/batch/import', authenticate, requireRole(ROLES.ADMIN), importReports);
+// Batch import (Admin / Leader only)
+router.post('/batch/import', authenticate, requireRole(ROLES.ADMIN, ROLES.LEADER), importReports);
 
 // Standard Report CRUD
 router.get('/', validate(filterReportsQuerySchema), getReports);
@@ -52,8 +52,8 @@ router.post('/', validate(createReportSchema), (req, res, next) => {
 // Update report
 router.put('/:ref', validate(updateReportSchema), authenticate, updateReport);
 
-// Delete report (Admin only)
-router.delete('/:ref', authenticate, requireRole(ROLES.ADMIN), deleteReport);
+// Delete report (Admin / Leader only)
+router.delete('/:ref', authenticate, requireRole(ROLES.ADMIN, ROLES.LEADER), deleteReport);
 
 module.exports = router;
 

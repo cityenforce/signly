@@ -72,7 +72,7 @@ export const ImportPage: React.FC = () => {
       <div>
         <h2 style={{ fontSize: '24px' }}>Import Reports &amp; Demo Testing Data</h2>
         <p style={{ color: 'var(--mute)', fontSize: '13px' }}>
-          Batch import offline field audits from the Signly app or populate Geelong simulation data
+          Batch import offline field audits from the i-Sign app or populate Geelong simulation data
         </p>
       </div>
 
@@ -102,7 +102,7 @@ export const ImportPage: React.FC = () => {
         </div>
 
         <p style={{ color: 'var(--mute)', fontSize: '13px' }}>
-          In the Signly Android application, open any submitted report, expand the <b>“Backend record (JSON)”</b>{' '}
+          In the i-Sign Android application, open any submitted report, expand the <b>“Backend record (JSON)”</b>{' '}
           drawer, copy the JSON string, and paste it below. You can also paste an array of report objects.
         </p>
 

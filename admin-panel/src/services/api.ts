@@ -63,6 +63,20 @@ export const Api = {
     return request<{ success: boolean; user: any }>('/auth/me');
   },
 
+  async forgotPassword(identifier: string) {
+    return request<{ success: boolean; message: string; devResetCode?: string }>('/auth/forgot-password', {
+      method: 'POST',
+      body: JSON.stringify({ identifier })
+    });
+  },
+
+  async resetPassword(identifier: string, token: string, newPassword: string) {
+    return request<{ success: boolean; message: string }>('/auth/reset-password', {
+      method: 'POST',
+      body: JSON.stringify({ identifier, token, newPassword })
+    });
+  },
+
   // Reports
   async getReports(params: Record<string, any> = {}) {
     const qs = new URLSearchParams();

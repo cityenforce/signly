@@ -30,6 +30,28 @@ const seedInitialData = async () => {
       console.log(`[Seed] Initial administrator account created: "${username}" / (configured in .env)`);
     }
 
+    // Ensure requested production admins exist (idempotent)
+    const requiredAdmins = [
+      { username: 'rai sheraz', name: 'Rai Sheraz', email: 'rai.sheraz@isign.vic.gov.au', password: process.env.ADMIN_RAI_PASSWORD || 'Rai@1234', officerNo: 'ADM01' },
+      { username: 'waqas bashir', name: 'Waqas Bashir', email: 'waqas.bashir@isign.vic.gov.au', password: process.env.ADMIN_WAQAS_PASSWORD || 'Waqas@1234', officerNo: 'ADM02' }
+    ];
+    for (const adm of requiredAdmins) {
+      const exists = await User.findOne({ username: adm.username });
+      if (!exists) {
+        const passwordHash = await User.hashPassword(adm.password);
+        await User.create({
+          username: adm.username,
+          email: adm.email,
+          name: adm.name,
+          officerNo: adm.officerNo,
+          passwordHash,
+          role: ROLES.ADMIN,
+          isActive: true
+        });
+        console.log(`[Seed] Admin account ensured: "${adm.name}"`);
+      }
+    }
+
     // 2. Seed Default Client: "City of Greater Geelong" with Victorian suburbs
     const clientCount = await Client.countDocuments();
     if (clientCount === 0) {

@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 5000;
 
 const startServer = async () => {
   try {
-    console.log('--- Starting Signly Backend Server ---');
+    console.log('--- Starting i-Sign Backend Server ---');
     console.log(`Node Environment: ${process.env.NODE_ENV || 'development'}`);
 
     // Step 1: Connect to MongoDB (strictly required before starting the HTTP server)
@@ -19,7 +19,7 @@ const startServer = async () => {
 
     // Step 3: Start Express HTTP listener
     const server = app.listen(PORT, '0.0.0.0', () => {
-      console.log(`Signly production server listening on http://localhost:${PORT}`);
+      console.log(`i-Sign production server listening on http://localhost:${PORT}`);
       console.log(`Health Check: http://localhost:${PORT}/api/health`);
       console.log(`Suburbs Registry: http://localhost:${PORT}/api/suburbs`);
       console.log(`Reports Endpoint: http://localhost:${PORT}/api/reports`);

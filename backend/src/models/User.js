@@ -40,7 +40,7 @@ const userSchema = new mongoose.Schema(
     },
     role: {
       type: String,
-      enum: [ROLES.ADMIN, ROLES.OFFICER],
+      enum: [ROLES.ADMIN, ROLES.LEADER, ROLES.OFFICER],
       default: ROLES.OFFICER,
       index: true
     },
@@ -63,6 +63,14 @@ const userSchema = new mongoose.Schema(
     },
     lastLoginAt: {
       type: Date
+    },
+    resetPasswordToken: {
+      type: String,
+      select: false
+    },
+    resetPasswordExpires: {
+      type: Date,
+      select: false
     }
   },
   {

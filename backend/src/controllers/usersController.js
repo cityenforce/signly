@@ -252,7 +252,7 @@ const updateUser = async (req, res, next) => {
     if (name) user.name = name.trim();
     if (email) user.email = email.trim().toLowerCase();
     if (officerNo !== undefined) user.officerNo = officerNo ? officerNo.trim() : undefined;
-    if (role && [ROLES.ADMIN, ROLES.OFFICER].includes(role)) user.role = role;
+    if (role && [ROLES.ADMIN, ROLES.LEADER, ROLES.OFFICER].includes(role)) user.role = role;
     if (typeof isActive === 'boolean') user.isActive = isActive;
     if (password) {
       user.passwordHash = await User.hashPassword(password);

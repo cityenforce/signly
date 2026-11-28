@@ -40,7 +40,7 @@ export default function App() {
 
     Api.getMe()
       .then((res) => {
-        if (res.success && res.user) {
+        if (res.success && res.user && (res.user.role === 'leader' || res.user.role === 'admin')) {
           setCurrentUser(res.user);
         } else {
           clearAuthToken();
@@ -82,7 +82,7 @@ export default function App() {
           color: 'var(--mute)'
         }}
       >
-        Authenticating Signly session...
+        Authenticating i-Sign session...
       </div>
     );
   }

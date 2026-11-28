@@ -14,9 +14,9 @@ const { createClientSchema, updateClientSchema } = require('../validations/clien
 
 router.get('/', getClients);
 
-router.post('/', authenticate, requireRole(ROLES.ADMIN), validate(createClientSchema), createClient);
-router.put('/:id', authenticate, requireRole(ROLES.ADMIN), validate(updateClientSchema), updateClient);
-router.delete('/:id', authenticate, requireRole(ROLES.ADMIN), deleteClient);
+router.post('/', authenticate, requireRole(ROLES.ADMIN, ROLES.LEADER), validate(createClientSchema), createClient);
+router.put('/:id', authenticate, requireRole(ROLES.ADMIN, ROLES.LEADER), validate(updateClientSchema), updateClient);
+router.delete('/:id', authenticate, requireRole(ROLES.ADMIN, ROLES.LEADER), deleteClient);
 
 module.exports = router;
 

@@ -30,26 +30,19 @@ export const Header: React.FC<HeaderProps> = ({
       }}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-        {/* Signly Brand Logo */}
-        <svg width="36" height="36" viewBox="0 0 64 64" aria-label="Signly" style={{ borderRadius: '8px' }}>
+        {/* i-Sign Brand Logo */}
+        <svg width="36" height="36" viewBox="0 0 64 64" aria-label="i-Sign" style={{ borderRadius: '8px' }}>
           <rect width="64" height="64" rx="13" fill="#D97757" />
-          <circle cx="32" cy="25" r="19" fill="#F5F4ED" />
-          <rect x="29.4" y="42" width="5.3" height="15.4" rx="2.6" fill="#F5F4ED" />
-          <path
-            d="M41 17.5C37 13.5 23.5 14 24 21C24.5 28 40 24 40 31C40 37.5 27 37 23 32.5"
-            fill="none"
-            stroke="#C15F3C"
-            strokeWidth="4.6"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
+          <rect x="14" y="14" width="36" height="36" rx="6" transform="rotate(45 32 32)" fill="#F5F4ED" />
+          <circle cx="32" cy="22.5" r="3.2" fill="#C15F3C" />
+          <rect x="29.2" y="28.5" width="5.6" height="13" rx="2.8" fill="#C15F3C" />
         </svg>
 
         <div>
           <h2 style={{ fontSize: '20px', lineHeight: 1.2 }}>
-            Sign<span style={{ color: 'var(--clay)' }}>ly</span>{' '}
+            i-<span style={{ color: 'var(--clay)' }}>Sign</span>{' '}
             <span style={{ fontSize: '15px', color: 'var(--mute)', fontFamily: 'var(--font-sans)', fontWeight: 400 }}>
-              Admin Portal
+              People Leaders
             </span>
           </h2>
         </div>

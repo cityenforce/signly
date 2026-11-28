@@ -412,4 +412,45 @@ describe('Signly Backend End-to-End Test Suite (Native Runner)', () => {
       .set('Authorization', `Bearer ${officerToken}`);
     assert.strictEqual(verifyRes.statusCode, 404);
   });
+
+  test('Forgot & Reset Password: POST /api/auth/forgot-password and /reset-password should reset password', async () => {
+    const forgotRes = await request(app)
+      .post('/api/auth/forgot-password')
+      .send({ identifier: 'officer1' });
+
+    assert.strictEqual(forgotRes.statusCode, 200);
+    assert.strictEqual(forgotRes.body.success, true);
+    assert.ok(forgotRes.body.devResetCode);
+
+    // Wrong code rejected
+    const badRes = await request(app)
+      .post('/api/auth/reset-password')
+      .send({
+        identifier: 'officer1',
+        token: '000000',
+        newPassword: 'NewOfficerPassword123!'
+      });
+    assert.strictEqual(badRes.statusCode, 400);
+
+    // Valid code resets password
+    const resetRes = await request(app)
+      .post('/api/auth/reset-password')
+      .send({
+        identifier: 'officer1',
+        token: forgotRes.body.devResetCode,
+        newPassword: 'NewOfficerPassword123!'
+      });
+    assert.strictEqual(resetRes.statusCode, 200);
+    assert.strictEqual(resetRes.body.success, true);
+
+    // Login with new password works
+    const loginRes = await request(app)
+      .post('/api/auth/login')
+      .send({
+        username: 'officer1',
+        password: 'NewOfficerPassword123!'
+      });
+    assert.strictEqual(loginRes.statusCode, 200);
+    assert.strictEqual(loginRes.body.success, true);
+  });
 });

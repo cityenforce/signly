@@ -11,10 +11,11 @@ const loginSchema = z.object({
 const registerOfficerSchema = z.object({
   body: z.object({
     name: z.string().min(2, 'Name must be at least 2 characters').trim(),
-    officerNo: z.string().min(1, 'Officer number is required').trim(),
+    officerNo: z.string().trim().optional(),
     username: z.string().min(3, 'Username must be at least 3 characters').max(30).trim().toLowerCase(),
     password: z.string().min(6, 'Password must be at least 6 characters'),
-    email: z.string().email('Valid email is required').trim().toLowerCase().optional()
+    email: z.string().email('Valid email is required').trim().toLowerCase().optional(),
+    role: z.enum([ROLES.ADMIN, ROLES.LEADER, ROLES.OFFICER]).optional()
   })
 });
 
@@ -41,11 +42,27 @@ const changePasswordSchema = z.object({
   })
 });
 
+const forgotPasswordSchema = z.object({
+  body: z.object({
+    identifier: z.string().min(1, 'Username or email is required').trim()
+  })
+});
+
+const resetPasswordSchema = z.object({
+  body: z.object({
+    identifier: z.string().min(1, 'Username or email is required').trim(),
+    token: z.string().min(4, 'Reset code is required').trim(),
+    newPassword: z.string().min(6, 'New password must be at least 6 characters')
+  })
+});
+
 module.exports = {
   loginSchema,
   registerOfficerSchema,
   initialAdminSetupSchema,
   updateProfileSchema,
-  changePasswordSchema
+  changePasswordSchema,
+  forgotPasswordSchema,
+  resetPasswordSchema
 };
 

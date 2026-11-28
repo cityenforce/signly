@@ -29,8 +29,9 @@ router.get('/profile', getProfile);
 router.post('/profile/avatar', upload.single('avatar'), uploadProfileAvatar);
 router.delete('/profile/avatar', deleteProfileAvatar);
 
-// Admin-only staff management endpoints
-router.get('/', requireRole(ROLES.ADMIN), getUsers);
+// People Leaders & Admins can view the staff list
+router.get('/', requireRole(ROLES.ADMIN, ROLES.LEADER), getUsers);
+// Admin Control only: create, update, delete accounts
 router.post('/', requireRole(ROLES.ADMIN), validate(registerOfficerSchema), createUser);
 router.put('/:id', requireRole(ROLES.ADMIN), updateUser);
 router.delete('/:id', requireRole(ROLES.ADMIN), deleteUser);

@@ -5,7 +5,7 @@ export interface User {
   email: string;
   name: string;
   officerNo?: string;
-  role: 'admin' | 'officer';
+  role: 'admin' | 'leader' | 'officer';
   isActive: boolean;
   avatar?: string;
   avatarKey?: string;
